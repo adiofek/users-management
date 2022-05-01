@@ -150,9 +150,9 @@ input:focus {
 .btn {
   color: #fff;
   border: 0;
-  border-radius: auto;
+  border-radius: 8px;
   color: #fff;
-  width: 90px;
+  width: 105px;
   height: 30px;
   cursor: pointer;
   text-align: center;
