@@ -79,7 +79,7 @@ class Users extends Component {
   };
 
   addUser = (obj) => {
-    this.setState({ users: [...this.state.users, obj], adduser:false });
+    this.setState({ users: [...this.state.users, obj], adduser: false });
     window.alert("User added successfully");
   };
   addTodo = (obj) => {
@@ -140,12 +140,12 @@ class Users extends Component {
           </div>
 
           <div className="column message">
-            <h2>Todos</h2> <h2>{this.state.username}</h2>
             <pr>{this.state.message} </pr>
             {this.state.id !== "" && (
               <TodosList
                 UserID={this.state.id}
                 todos={this.state.todos}
+                username={this.state.username}
                 addtodo={this.addTodo}
                 id={this.state.todos[this.state.todos.length - 1].id + 1}
                 updateTodo={this.updateTodo}
@@ -154,11 +154,11 @@ class Users extends Component {
           </div>
 
           <div className="column message">
-            <h2>Posts</h2> <h2>{this.state.username}</h2>
             {this.state.id !== "" && (
               <PostsList
                 UserID={this.state.id}
                 posts={this.state.posts}
+                username={this.state.username}
                 addpost={this.addPost}
                 id={this.state.posts[this.state.posts.length - 1].id + 1}
               />

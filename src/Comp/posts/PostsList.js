@@ -23,6 +23,7 @@ class PostsView extends Component {
     let postsFilter = this.props.posts.filter((post) => post.userId === this.props.UserID);
     return (
       <div>
+        <h2>Posts</h2> <h2>{this.props.username}</h2>
         <input
           type="button"
           className="btn btn-primary"

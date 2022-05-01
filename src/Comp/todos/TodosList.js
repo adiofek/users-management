@@ -27,6 +27,7 @@ class TodosView extends Component {
     let todosFilter = this.props.todos.filter((todos) => todos.userId === this.props.UserID);
     return (
       <div>
+        <h2>To-dos</h2> <h2>{this.props.username}</h2>
         <input
           type="button"
           className="btn btn-primary"
