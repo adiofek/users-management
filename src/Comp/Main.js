@@ -116,6 +116,7 @@ class Users extends Component {
                 }}
               />
             )}
+            <br/>
           </div>
         </div>
 
