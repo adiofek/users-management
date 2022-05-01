@@ -75,7 +75,7 @@ class Users extends Component {
   };
 
   OpenAddUserBox = () => {
-    this.setState({ id: "", username: "", adduser: true, message: "" });
+    this.setState({ adduser: true, message: "" });
   };
 
   addUser = (obj) => {
@@ -103,9 +103,7 @@ class Users extends Component {
             <h3>Search User: </h3>{" "}
             <input type="text" className="input-group" onChange={(e) => this.setState({ search: e.target.value })} />
             &nbsp;&nbsp;
-            <input type="button" className="btn btn-primary" value="Add User" onClick={(e) => this.OpenAddUserBox()} />
-            &nbsp;&nbsp;
-            {!this.state.adduser && this.state.id !== "" && (
+            {this.state.id !== "" ? (
               <input
                 type="button"
                 value="Clear User"
@@ -115,8 +113,14 @@ class Users extends Component {
                   this.setMessage();
                 }}
               />
+            ) : (
+              <input
+                type="button"
+                className="btn btn-primary"
+                value="Add User"
+                onClick={(e) => this.OpenAddUserBox()}
+              />
             )}
-            <br/>
           </div>
         </div>
 
@@ -124,36 +128,35 @@ class Users extends Component {
           <div className="column message">
             {this.state.id === "" && <h2>Users List</h2>}
             <pr>{this.state.message} </pr>
-            <div>
-              {this.state.adduser && (
-                <Newuser
-                  cancel={this.handleCancel}
-                  addUser={this.addUser}
-                  id={this.state.users[this.state.users.length - 1].id + 1}
-                />
-              )}
-              {!this.state.adduser && this.state.id === "" && (
-                <UserList
-                  users={this.state.users}
-                  handleClickID={this.handleClickID}
-                  handleDelete={this.DeleteUser}
-                  handleUpdate={this.UpdateUser}
-                  loading={this.state.loading}
-                  search={this.state.search}
-                />
-              )}
 
-              {!this.state.adduser && this.state.id !== "" && (
-                <TodosList
-                  UserID={this.state.id}
-                  todos={this.state.todos}
-                  username={this.state.username}
-                  addtodo={this.addTodo}
-                  id={this.state.todos[this.state.todos.length - 1].id + 1}
-                  updateTodo={this.updateTodo}
-                />
-              )}
-            </div>
+            {!this.state.adduser && this.state.id === "" && (
+              <UserList
+                users={this.state.users}
+                handleClickID={this.handleClickID}
+                handleDelete={this.DeleteUser}
+                handleUpdate={this.UpdateUser}
+                loading={this.state.loading}
+                search={this.state.search}
+              />
+            )}
+
+            {!this.state.adduser && this.state.id !== "" && (
+              <TodosList
+                UserID={this.state.id}
+                todos={this.state.todos}
+                username={this.state.username}
+                addtodo={this.addTodo}
+                id={this.state.todos[this.state.todos.length - 1].id + 1}
+                updateTodo={this.updateTodo}
+              />
+            )}
+            {this.state.adduser && (
+              <Newuser
+                cancel={this.handleCancel}
+                addUser={this.addUser}
+                id={this.state.users[this.state.users.length - 1].id + 1}
+              />
+            )}
           </div>
 
           <div className="column message">
