@@ -17,7 +17,7 @@ class Users extends Component {
       todos: [],
       posts: [],
       loading: true,
-      message: "Click on user ID to see todos and posts",
+      message: "Click on user ID to see to-dos and posts",
       id: "",
       search: "",
       username: "",
@@ -104,29 +104,34 @@ class Users extends Component {
             <input type="text" className="input-group" onChange={(e) => this.setState({ search: e.target.value })} />
             &nbsp;&nbsp;
             <input type="button" className="btn btn-primary" value="Add User" onClick={(e) => this.OpenAddUserBox()} />
+            &nbsp;&nbsp;
+            {!this.state.adduser && this.state.id !== "" && (
+              <input
+                type="button"
+                value="Clear User"
+                className="btn btn-primary"
+                onClick={(e) => {
+                  this.setState({ id: "", username: "" });
+                  this.setMessage();
+                }}
+              />
+            )}
           </div>
         </div>
 
         <div className="row">
           <div className="column message">
-            <h2>Users List</h2>
-            <input
-              type="button"
-              value="Clear User"
-              className="btn btn-primary"
-              onClick={(e) => {
-                this.setState({ id: "", username: "" });
-                this.setMessage();
-              }}
-            />
+            {this.state.id === "" && <h2>Users List</h2>}
+            <pr>{this.state.message} </pr>
             <div>
-              {this.state.adduser ? (
+              {this.state.adduser && (
                 <Newuser
                   cancel={this.handleCancel}
                   addUser={this.addUser}
                   id={this.state.users[this.state.users.length - 1].id + 1}
                 />
-              ) : (
+              )}
+              {!this.state.adduser && this.state.id === "" && (
                 <UserList
                   users={this.state.users}
                   handleClickID={this.handleClickID}
@@ -136,21 +141,18 @@ class Users extends Component {
                   search={this.state.search}
                 />
               )}
-            </div>
-          </div>
 
-          <div className="column message">
-            <pr>{this.state.message} </pr>
-            {this.state.id !== "" && (
-              <TodosList
-                UserID={this.state.id}
-                todos={this.state.todos}
-                username={this.state.username}
-                addtodo={this.addTodo}
-                id={this.state.todos[this.state.todos.length - 1].id + 1}
-                updateTodo={this.updateTodo}
-              />
-            )}
+              {!this.state.adduser && this.state.id !== "" && (
+                <TodosList
+                  UserID={this.state.id}
+                  todos={this.state.todos}
+                  username={this.state.username}
+                  addtodo={this.addTodo}
+                  id={this.state.todos[this.state.todos.length - 1].id + 1}
+                  updateTodo={this.updateTodo}
+                />
+              )}
+            </div>
           </div>
 
           <div className="column message">
