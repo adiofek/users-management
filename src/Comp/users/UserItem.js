@@ -50,9 +50,12 @@ export default class UserItem extends Component {
 
     return (
       <div className="card">
-        <button className="btn btn-secondary" onClick={(e) => this.handleClickID(id)}>
-          ID: {id}
-        </button>
+        <input
+          type="button"
+          value={`ID: ${id}`}
+          className="btn btn-secondary"
+          onClick={(e) => this.handleClickID(id)}
+        />
         <br />
         <b>Name: </b>
         <input

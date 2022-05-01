@@ -79,7 +79,7 @@ class Users extends Component {
   };
 
   addUser = (obj) => {
-    this.setState({ users: [...this.state.users, obj] });
+    this.setState({ users: [...this.state.users, obj], adduser:false });
     window.alert("User added successfully");
   };
   addTodo = (obj) => {
@@ -119,15 +119,24 @@ class Users extends Component {
                 this.setMessage();
               }}
             />
-
-            <UserList
-              users={this.state.users}
-              handleClickID={this.handleClickID}
-              handleDelete={this.DeleteUser}
-              handleUpdate={this.UpdateUser}
-              loading={this.state.loading}
-              search={this.state.search}
-            />
+            <div>
+              {this.state.adduser ? (
+                <Newuser
+                  cancel={this.handleCancel}
+                  addUser={this.addUser}
+                  id={this.state.users[this.state.users.length - 1].id + 1}
+                />
+              ) : (
+                <UserList
+                  users={this.state.users}
+                  handleClickID={this.handleClickID}
+                  handleDelete={this.DeleteUser}
+                  handleUpdate={this.UpdateUser}
+                  loading={this.state.loading}
+                  search={this.state.search}
+                />
+              )}
+            </div>
           </div>
 
           <div className="column message">
@@ -140,13 +149,6 @@ class Users extends Component {
                 addtodo={this.addTodo}
                 id={this.state.todos[this.state.todos.length - 1].id + 1}
                 updateTodo={this.updateTodo}
-              />
-            )}
-            {this.state.adduser && (
-              <Newuser
-                cancel={this.handleCancel}
-                addUser={this.addUser}
-                id={this.state.users[this.state.users.length - 1].id + 1}
               />
             )}
           </div>

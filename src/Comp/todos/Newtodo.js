@@ -26,11 +26,10 @@ class Newtodo extends Component {
 
   render() {
     return (
-      <div className="smallcard">
+      <div className="card">
         <h3>Add Todo</h3>
-        Title:
+        <strong>Title: </strong>
         <input type="text" className="input-users" onChange={(e) => this.setState({ newtodo: e.target.value })} />
-        <br />
         <br />
         <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} />
         &nbsp;&nbsp;

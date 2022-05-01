@@ -12,6 +12,7 @@ class TodosView extends Component {
 
   addTodo = (obj) => {
     this.props.addtodo(obj);
+    this.setState({ addtodo: false });
   };
 
   updateTodo = (obj) => {

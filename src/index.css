@@ -73,17 +73,6 @@ header {
   position: relative;
 }
 
-.smallcard {
-  background-color: rgba(163, 45, 61, 0.585);
-  color: #333;
-  border-radius: 15px;
-  padding: 5px 5px;
-  margin-left: 70px ;
-  margin-right: 70px ;
-  margin-top: 18px ;
-  position: relative;
-}
-
 
 .card.reverse {
   background-color: rgba(0, 0, 0, 0.4);
@@ -163,9 +152,10 @@ input:focus {
   border: 0;
   border-radius: 8px;
   color: #fff;
-  width: 85px;
+  width: 90px;
   height: 30px;
   cursor: pointer;
+  text-align: center;
 }
 
 .btn-primary {
@@ -178,10 +168,8 @@ input:focus {
 
 .btn-markcompleted {
   background: #df51af;
-  width: 145px;
-
+  width: auto;
 }
-
 
 .btn:hover {
   transform: scale(0.98);

@@ -34,16 +34,13 @@ class Addnewuser extends Component {
 
   render() {
     return (
-      <div className="smallcard">
+      <div className="card">
         <h3>Add User</h3>
-        Name: <input type="text" className="input-users" onChange={(e) => this.setState({ name: e.target.value })} />
+        <strong>Name: </strong>{" "}
+        <input type="text" className="input-users" onChange={(e) => this.setState({ name: e.target.value })} />
         <br />
-        Email: <input
-          type="email"
-          className="input-users"
-          onChange={(e) => this.setState({ email: e.target.value })}
-        />{" "}
-        <br />
+        <strong>Email: </strong>
+        <input type="email" className="input-users" onChange={(e) => this.setState({ email: e.target.value })} /> <br />
         <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} /> &nbsp;&nbsp;
         <input type="button" value="Add" className="btn btn-primary" onClick={(e) => this.Adduser()} />
       </div>

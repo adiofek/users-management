@@ -12,6 +12,7 @@ class PostsView extends Component {
 
   addPost = (obj) => {
     this.props.addpost(obj);
+    this.setState({ addpost: false });
   };
 
   Cancel = () => {

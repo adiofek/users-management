@@ -27,11 +27,13 @@ class Newpost extends Component {
 
   render() {
     return (
-      <div className="smallcard">
+      <div className="card">
         <h3>Add Post</h3>
-        Title: <input type="text" className="input-users" onChange={(e) => this.setState({ title: e.target.value })} />
+        <strong>Title:</strong>
+        <input type="text" className="input-users" onChange={(e) => this.setState({ title: e.target.value })} />
         <br />
-        Body: <input type="text" className="input-users" onChange={(e) => this.setState({ body: e.target.value })} />
+        <strong>Body:</strong>
+        <input type="text" className="input-users" onChange={(e) => this.setState({ body: e.target.value })} />
         <br />
         <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} />
         &nbsp;&nbsp;
