@@ -28,12 +28,15 @@ class Newtodo extends Component {
     return (
       <div className="card">
         <h3>Add Todo</h3>
-        <strong>Title: </strong>
-        <input type="text" className="input-users" onChange={(e) => this.setState({ newtodo: e.target.value })} />
+        <input
+          type="text"
+          placeholder="Title"
+          className="input-users"
+          onChange={(e) => this.setState({ newtodo: e.target.value })}
+        />
         <br />
-        <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} />
-        &nbsp;&nbsp;
         <input type="button" value="Add" className="btn btn-primary" onClick={(e) => this.addTodo()} />
+        <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} />
       </div>
     );
   }

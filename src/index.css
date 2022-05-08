@@ -54,22 +54,12 @@ header {
   background-color:silver;
 }
 
-.search {
-  height: 80px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-
 .card {
   background-color: rgba(163, 45, 61, 0.585);
   color: #333;
   border-radius: 15px;
   padding: 5px 5px;
-  margin: 15px ;
+  margin: 20px ;
   position: relative;
 }
 
@@ -101,7 +91,7 @@ header {
   border: 1px solid #ccc;
   padding: 8px 10px;
   border-radius: 8px;
-  margin-bottom:25px
+  margin-bottom:20px
 }
 
 .input-users {
@@ -150,12 +140,12 @@ input:focus {
 .btn {
   color: #fff;
   border: 0;
-  border-radius: 8px;
+  border-radius: 5px;
   color: #fff;
-  width: 100px;
-  height: 30px;
   cursor: pointer;
   text-align: center;
+  padding:4px;
+  margin:4px;
 }
 
 .btn-primary {
@@ -193,6 +183,9 @@ input:focus {
   color: rebeccapurple;
 }
 
+.center {
+  text-align: center;
+}
 
 @media (max-width: 600px) {
   .rating li {

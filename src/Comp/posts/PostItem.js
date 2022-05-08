@@ -11,7 +11,7 @@ class PostItem extends Component {
 
     return (
       <div className="card">
-        <strong>Title:</strong> {post.title} <br />
+        <strong>Title:</strong> {post.title} 
         <br />
         <strong>Body: </strong> {post.body}
       </div>

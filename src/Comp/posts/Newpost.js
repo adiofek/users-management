@@ -29,15 +29,24 @@ class Newpost extends Component {
     return (
       <div className="card">
         <h3>Add Post</h3>
-        <strong>Title:</strong>
-        <input type="text" className="input-users" onChange={(e) => this.setState({ title: e.target.value })} />
-        <br />
-        <strong>Body:</strong>
-        <input type="text" className="input-users" onChange={(e) => this.setState({ body: e.target.value })} />
-        <br />
-        <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} />
-        &nbsp;&nbsp;
-        <input type="button" value="Add" className="btn btn-primary" onClick={(e) => this.addPost()} />
+        <input
+          type="text"
+          placeholder="Title"
+          className="input-users"
+          onChange={(e) => this.setState({ title: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Body"
+          className="input-users"
+          onChange={(e) => this.setState({ body: e.target.value })}
+        />
+        <div className="center">
+          <row>
+            <input type="button" value="Add" className="btn btn-primary" onClick={(e) => this.addPost()} />
+            <input type="button" value="Cancel" className="btn btn-primary" onClick={(e) => this.Cancel()} />
+          </row>
+        </div>
       </div>
     );
   }

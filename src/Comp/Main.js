@@ -95,14 +95,24 @@ class Users extends Component {
     this.setState({ message: "Click on user ID to see todos and posts" });
   };
 
+  //   justify-content: space-between;
+  //   align-items: center;
+
   render() {
     return (
       <div>
-        <div className="search">
-          <div className="container">
-            <h3>Search User: </h3>{" "}
-            <input type="text" className="input-group" onChange={(e) => this.setState({ search: e.target.value })} />
-            &nbsp;&nbsp;
+        <div className="row">
+          <div className="message">
+            <input
+              type="text"
+              placeholder="Search User"
+              className="input-group"
+              onChange={(e) => this.setState({ search: e.target.value })}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="center">
             {this.state.id !== "" ? (
               <input
                 type="button"
@@ -126,6 +136,19 @@ class Users extends Component {
 
         <div className="row">
           <div className="column message">
+            {!this.state.adduser && this.state.id !== "" && (
+              <TodosList
+                UserID={this.state.id}
+                todos={this.state.todos}
+                username={this.state.username}
+                addtodo={this.addTodo}
+                id={this.state.todos[this.state.todos.length - 1].id + 1}
+                updateTodo={this.updateTodo}
+              />
+            )}
+          </div>
+
+          <div className="column message">
             {this.state.id === "" && <h2>Users List</h2>}
             <pr>{this.state.message} </pr>
 
@@ -139,17 +162,6 @@ class Users extends Component {
                 search={this.state.search}
               />
             )}
-
-            {!this.state.adduser && this.state.id !== "" && (
-              <TodosList
-                UserID={this.state.id}
-                todos={this.state.todos}
-                username={this.state.username}
-                addtodo={this.addTodo}
-                id={this.state.todos[this.state.todos.length - 1].id + 1}
-                updateTodo={this.updateTodo}
-              />
-            )}
             {this.state.adduser && (
               <Newuser
                 cancel={this.handleCancel}
@@ -157,9 +169,7 @@ class Users extends Component {
                 id={this.state.users[this.state.users.length - 1].id + 1}
               />
             )}
-          </div>
 
-          <div className="column message">
             {this.state.id !== "" && (
               <PostsList
                 UserID={this.state.id}

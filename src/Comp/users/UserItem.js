@@ -79,7 +79,6 @@ export default class UserItem extends Component {
           value="Other Data"
           onClick={(e) => this.setState({ otherdata: !this.state.otherdata })}
         />{" "}
-        &nbsp;&nbsp;
         {this.state.otherdata && (
           <OtherData
             user={this.props.user}
@@ -89,7 +88,6 @@ export default class UserItem extends Component {
           />
         )}
         <input type="button" value="Update" className="btn btn-secondary" onClick={(e) => this.handleUpdate(id)} />{" "}
-        &nbsp;&nbsp;
         <input
           type="button"
           value="Delete"
